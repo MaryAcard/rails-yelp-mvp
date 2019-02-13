@@ -1,0 +1,26 @@
+
+<!-- app/views/restaurants/_form.html.erb -->
+<%= simple_form_for(@restaurant) do |f| %>
+<div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+    <%= f.label :address %>
+      <%= f.text_field :address, class: 'form-control' %>
+    <%= f.label :phone_number %>
+      <%= f.text_field :phone_number, class: 'form-control' %>
+    <%= f.label :category %>
+      <%= f.text_field :category, class: 'form-control' %>
+        <%= f.submit "add a restaurant", class: "btn btn-primary" %>
+  </div>
+  <% if @restaurant.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @restaurant.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- [...] all the fields -->
+<% end %>
